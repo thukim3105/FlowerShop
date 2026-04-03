@@ -1,25 +1,52 @@
-import React from 'react'
-import Label from '../components/Label'
-import Item from '../components/Item'
+import Item from "../components/Item";
+import Label from "../components/Label";
 
 function Body() {
   return (
-    <div className="w-full bg-[rgb(251,249,245)] p-[3%]">
-      <div className='flex flex-row justify-between pt-[10%] '>
-        <Label string={"New Arrivals"} style={"font-serif text-4xl items-end"} />
-        <Label string={"EXPLORE ALL"} style="items-end"/>
-      </div>
-      <div className='flex h-screen py-5 justify-between'>
-        <div className="w-1/2 pr-[5%]">
-          <Item src="/img/lily.jpg" name="Lily" price="$85" />
+    <div className="w-full bg-[#fbf9f5] py-12 sm:py-16 md:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-8 sm:mb-10">
+          <Label
+            string="New Arrivals"
+            style="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1b1c1a]"
+          />
+          <Label
+            string="EXPLORE ALL"
+            style="uppercase tracking-widest text-xs sm:text-sm text-[#566342]"
+          />
         </div>
-        <div className="w-1/3 flex flex-col">
-          <Item src="/img/phalaenopsis-orchids.jpg" name="Phalaenopsis orchids" price="$85" className="h-1/2" />
-          <Item src="/img/lavender.jpg" name="Lavender" price="$85" className="h-1/2" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="lg:col-span-2">
+            <Item
+              image="/img/lily.jpg"
+              title="Lily"
+              description="Soft white petals with elegant green filigree, curated for premium bouquets."
+              price="$85"
+              layoutType="featured"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:gap-5">
+            <Item
+              image="/img/phalaenopsis-orchids.jpg"
+              title="Phalaenopsis orchids"
+              description="Delicate orchids that bring a refined touch to any editorial display."
+              price="$85"
+              layoutType="thumbnail"
+            />
+            <Item
+              image="/img/lavender.jpg"
+              title="Lavender"
+              description="Calming violet bouquets for atmospheric accents and soft tonality."
+              price="$85"
+              layoutType="thumbnail"
+            />
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Body
+export default Body;

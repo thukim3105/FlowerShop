@@ -11,6 +11,10 @@ services:
       - "5173:5173"
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=100
+      - WATCHPACK_POLLING=true
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
     volumes:
       - .:/app       # mount current project for hot reload
       - /app/node_modules # prevent node_modules overwrite
