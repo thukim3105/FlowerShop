@@ -7,10 +7,18 @@ services:
       dockerfile: Dockerfile.dev
     container_name: flowershop-dev
     restart: unless-stopped
-    ports:
-      - "5173:5173"
     environment:
       - NODE_ENV=development
+    ports:
+      - "5173:5173"
     volumes:
-      - .:/app       # mount current project for hot reload
-      - /app/node_modules # prevent node_modules overwrite
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+

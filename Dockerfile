@@ -1,39 +1,30 @@
 # Stage 1: Build
 FROM node:20-alpine AS builder
 
-# Set working dir
 WORKDIR /app
 
-# Install dependencies
+# Copy dependency manifest and install first (cached layer)
 COPY package*.json ./
-RUN npm install
+RUN npm ci --silent
 
 # Copy source code
 COPY . .
 
-# Build the app
+# Production build
 RUN npm run build
 
 # Stage 2: Runtime
 FROM node:20-alpine
 
-# Set working dir
 WORKDIR /app
 
-# Install a simple HTTP server to serve the built app
-RUN npm install -g serve
+# Install a static server for production
+RUN npm install -g serve@14.2.0
 
-# Copy built app from builder stage
+# Copy build output
 COPY --from=builder /app/dist ./dist
 
-# Copy package.json for reference
-COPY package*.json ./
-
-# Expose port
 EXPOSE 3000
-
-# Set production environment
 ENV NODE_ENV=production
 
-# Serve the application
 CMD ["serve", "-s", "dist", "-l", "3000"]
