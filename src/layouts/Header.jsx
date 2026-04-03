@@ -8,9 +8,9 @@ function Header() {
 
   return (
     <header className="w-full sticky top-0 z-50 bg-[rgba(251,249,245,0.7)] backdrop-blur-sm">
-      <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div className="mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Branding (left) */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <Link to="/" className="flex items-center gap-3">
             <span className="font-serif text-lg md:text-2xl text-[rgba(27,28,26,0.95)]">Flower Shop</span>
           </Link>
@@ -29,7 +29,7 @@ function Header() {
             </Link>
 
         {/* Right: search + cart (mobile-first, search collapses) */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           {/* Desktop input */}
           <div className="hidden md:block">
             <div className="bg-white rounded-md px-2 py-1 shadow-[0_6px_24px_rgba(27,28,26,0.04)]">

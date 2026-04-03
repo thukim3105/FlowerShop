@@ -17,9 +17,6 @@ function App() {
           <Route path="/product-detail" element={<ProductDetail />} />
         </Routes>
       </main>
-
-      {/* optional footer spacing for mobile */}
-      <footer className="h-6 md:h-8" />
     </div>
   )
 }

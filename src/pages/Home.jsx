@@ -6,7 +6,7 @@ import Footer from '../layouts/Footer'
 
 function Home() {
   return (
-    <div className="w-full max-w-screen-xl mx-auto sm:px-4">
+    <div className="w-full">
       <main>
         <section>
           <Intro />

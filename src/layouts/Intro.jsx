@@ -8,7 +8,7 @@ function Intro() {
       {/* soft cream overlay to create surface layers per DESIGN.md */}
       <div className="absolute inset-0 bg-[rgba(251,249,245,0.65)] backdrop-blur-sm" />
 
-      <div className="relative max-w-screen-xl mx-auto px-6 py-12 sm:px-12 sm:py-20 h-[48vh] md:h-[64vh] flex flex-col justify-center items-start">
+      <div className="relative mx-auto px-6 py-12 sm:px-12 sm:py-20 h-[48vh] md:h-[64vh] flex flex-col justify-center items-start">
         {/* label */}
         <Label string="SUMMER COLLECTION 2026" style="font-manrope uppercase text-sm tracking-[0.05rem] text-[rgba(27,28,26,0.8)]" />
 
