@@ -1,0 +1,18 @@
+# Use Node 20 Alpine
+FROM node:20-alpine
+
+# Set working dir
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source code (for initial build, but volume will override)
+COPY . .
+
+# Expose vite dev port
+EXPOSE 5173
+
+# Run dev server with host 0.0.0.0 to allow container access
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
