@@ -1,5 +1,5 @@
-# Use Node 20 Alpine
-FROM node:20-alpine
+# Stage 1: Build
+FROM node:20-alpine AS builder
 
 # Set working dir
 WORKDIR /app
@@ -8,11 +8,32 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Copy source code (for initial build, but volume will override)
+# Copy source code
 COPY . .
 
-# Expose vite dev port
-EXPOSE 5173
+# Build the app
+RUN npm run build
 
-# Run dev server with host 0.0.0.0 to allow container access
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+# Stage 2: Runtime
+FROM node:20-alpine
+
+# Set working dir
+WORKDIR /app
+
+# Install a simple HTTP server to serve the built app
+RUN npm install -g serve
+
+# Copy built app from builder stage
+COPY --from=builder /app/dist ./dist
+
+# Copy package.json for reference
+COPY package*.json ./
+
+# Expose port
+EXPOSE 3000
+
+# Set production environment
+ENV NODE_ENV=production
+
+# Serve the application
+CMD ["serve", "-s", "dist", "-l", "3000"]
