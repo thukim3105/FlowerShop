@@ -1,13 +1,21 @@
 import React from 'react'
 import Header from '../layouts/Header'
 import Intro from '../layouts/Intro'
+import Body from '../layouts/Body'
+import Footer from '../layouts/Footer'
 
 function Home() {
   return (
-    <div className="w-full max-w-screen-xl mx-auto sm:px-6">
+    <div className="w-full max-w-screen-xl mx-auto sm:px-4">
       <main>
         <section>
           <Intro />
+        </section>
+        <section>
+          <Body />
+        </section>
+        <section>
+          <Footer />
         </section>
       </main>
     </div>
