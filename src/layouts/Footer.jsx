@@ -1,9 +1,9 @@
 import React from 'react'
-import Label from '../components/Label'
+import Label from '../components/ui/Label'
 
 function Footer() {
     return (
-        <footer className='w-full bg-[#f5f3ef] py-16'>
+        <footer className='mt-auto shrink-0 w-full bg-[#f5f3ef] py-16'>
             <div className='max-w-6xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
                 <div className='space-y-4'>
                     <Label string="The Flower Shop" style="font-serif text-2xl" />

@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../layouts/Header'
-import Intro from '../layouts/Intro'
+import Hero from '../components/landing/Hero'
 import Body from '../layouts/Body'
 import Footer from '../layouts/Footer'
 
@@ -9,7 +9,7 @@ function Home() {
     <div className="w-full">
       <main>
         <section>
-          <Intro />
+          <Hero />
         </section>
         <section>
           <Body />

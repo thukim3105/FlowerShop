@@ -1,5 +1,5 @@
-import Item from "../components/Item";
-import Label from "../components/Label";
+import Item from "../components/ui/Item";
+import Label from "../components/ui/Label";
 
 function Body() {
   return (

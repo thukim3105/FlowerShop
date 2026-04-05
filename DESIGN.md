@@ -5,7 +5,7 @@
 
 This design system moves away from the rigid, boxed-in constraints of traditional e-commerce. Instead, it treats the interface as a high-end editorial spread—think *Vogue* meets an artisanal botanical garden. We achieve a "fresh, premium feel" not through lines and borders, but through the mastery of **Negative Space** and **Organic Layering**.
 
-The goal is to evoke the scent of fresh eucalyptus and the softness of a petal. We break the "template" look by using intentional asymmetry, where high-scale Noto Serif headings overlap soft-colored containers, and products are treated as art pieces rather than just inventory items.
+The brand identity is expressed as **FlowerShop**—a single-word editorial marquee that balances luxury with botanical warmth. The goal is to evoke the scent of fresh eucalyptus and the softness of a petal. We break the "template" look by using intentional asymmetry, where high-scale Noto Serif headings overlap soft-colored containers, and products are treated as art pieces rather than just inventory items.
 
 ---
 
