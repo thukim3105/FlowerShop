@@ -6,8 +6,9 @@ import Footer from '../layouts/Footer'
 
 function Home() {
   return (
-    <div className="w-full">
-      <main>
+    <div className="w-full bg-[#fbf9f5]">
+      <Header />
+      <main className="pt-27">
         <section>
           <Hero />
         </section>

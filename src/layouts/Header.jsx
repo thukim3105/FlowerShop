@@ -1,19 +1,40 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import Input from '../components/ui/Input'
 import { CartIcon, SearchIcon } from '../components/icons'
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false)
-  const [activeMenu, setActiveMenu] = useState('HOME')
+  const location = useLocation()
+  const headerRef = useRef(null)
+  const cartCount = 2
 
   const navItems = [
     { label: "HOME", path: "/" },
     { label: "COLLECTIONS", path: "/product" },
-    { label: "OCCASIONS", path: "/" },
-    { label: "JOURNAL", path: "/" },
+    { label: "OCCASIONS", path: "/occasions" },
+    { label: "JOURNAL", path: "/journal" },
   ];
 
+  const isActive = (path) => {
+    if (path === '/product') {
+      return location.pathname === path || location.pathname.startsWith('/product/')
+    }
+    return location.pathname === path
+  }
+
+  useEffect(() => {
+    if (!showSearch) return
+
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setShowSearch(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showSearch])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -39,15 +60,14 @@ function Header() {
             <li key={item.label}>
               <Link
                 to={item.path}
-                onClick={() => setActiveMenu(item.label)}
-                className={`text-xs tracking-[0.08rem] font-manrope font-medium uppercase transition-colors duration-300 relative pb-2 ${activeMenu === item.label
+                className={`text-xs tracking-[0.08rem] font-manrope font-medium uppercase transition-colors duration-300 relative pb-2 ${isActive(item.path)
                   ? 'text-[#2b6954]'
                   : 'text-[#1b1c1a] hover:text-[#2b6954]'
                   }`}
               >
                 {item.label}
 
-                {activeMenu === item.label && (
+                {isActive(item.path) && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2b6954]" />
                 )}
               </Link>
@@ -63,6 +83,7 @@ function Header() {
             <button
               className="p-2 text-[#1b1c1a] hover:text-[#2b6954] transition-colors"
               aria-label="Search"
+              onClick={() => setShowSearch((current) => !current)}
             >
               <SearchIcon />
             </button>
@@ -85,33 +106,31 @@ function Header() {
           >
             <CartIcon />
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#715953] text-white text-xs rounded-full flex items-center justify-center font-manrope">
-              2
+              {cartCount}
             </span>
           </Link>
         </div>
       </nav>
 
-      {/* Mobile Search Input (Collapsible) */}
-      {showSearch && (
-        <div className="lg:hidden border-t border-[rgba(43,105,84,0.1)] px-8 py-4">
-          <Input />
-        </div>
-      )}
+      {/* Search Input (Collapsible) */}
+      <div className={`lg:hidden border-t border-[rgba(43,105,84,0.1)] px-8 transition-all duration-300 ${showSearch ? 'max-h-28 opacity-100 py-4' : 'max-h-0 opacity-0 py-0 overflow-hidden'}`}>
+        <Input />
+      </div>
 
       {/* Mobile Navigation Menu */}
       <div className="lg:hidden border-t border-[rgba(43,105,84,0.1)] px-8 py-3">
         <ul className="flex flex-wrap gap-4">
           {navItems.map((item) => (
             <li key={item.label}>
-              <button
-                onClick={() => setActiveMenu(item.label)}
-                className={`text-xs tracking-[0.06rem] font-manrope font-medium uppercase transition-colors ${activeMenu === item.label
+              <Link
+                to={item.path}
+                className={`text-xs tracking-[0.06rem] font-manrope font-medium uppercase transition-colors ${isActive(item.path)
                   ? 'text-[#2b6954] font-semibold'
                   : 'text-[#1b1c1a] hover:text-[#2b6954]'
                   }`}
               >
                 {item.label}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
