@@ -4,7 +4,7 @@ function ProductCard({ image, title, price }) {
     return (
         <article className="flex flex-col h-full overflow-hidden rounded-[1.75rem] bg-white shadow-[0_24px_56px_rgba(27,28,26,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_80px_rgba(27,28,26,0.14)]">
 
-            <div className="h-[220px] overflow-hidden">
+            <div className="h-55 overflow-hidden">
                 <img
                     src={image}
                     alt={title}

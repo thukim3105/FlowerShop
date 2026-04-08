@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Input from '../components/ui/Input'
 import { CartIcon, SearchIcon } from '../components/icons'
+import { useCart } from '../context/CartContext'
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false)
   const location = useLocation()
   const headerRef = useRef(null)
-  const cartCount = 2
+  const { cartCount } = useCart()
 
   const navItems = [
     { label: "HOME", path: "/" },
@@ -37,7 +38,7 @@ function Header() {
   }, [showSearch])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
       {/* Glassmorphic background */}
       <div className="absolute inset-0 bg-[rgba(251,249,245,0.65)] backdrop-blur-[20px]"></div>
 

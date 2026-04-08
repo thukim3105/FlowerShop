@@ -18,3 +18,12 @@ export function SearchIcon() {
         </svg>
     )
 }
+
+export function AccountIcon() {
+    return (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Z" />
+            <path d="M4 22c0-3.866 3.134-7 7-7s7 3.134 7 7" />
+        </svg>
+    )
+}

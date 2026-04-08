@@ -2,20 +2,20 @@ import React from 'react'
 
 const groups = [
   {
-    title: 'DỊP ĐẶC BIỆT',
-    items: ['Sinh nhật', 'Kỷ niệm', 'Cảm ơn'],
-    active: 'Kỷ niệm',
+    title: 'SPECIAL OCCASIONS',
+    items: ['Birthday', 'Anniversary', 'Gratitude'],
+    active: null,
   },
   {
-    title: 'LOẠI HOA',
-    items: ['Hoa Hồng', 'Hoa Lan', 'Hoa Hướng Dương'],
+    title: 'FLOWER CATEGORIES',
+    items: ['Roses', 'Orchids', 'Sunflowers'],
     active: null,
   },
 ]
 
-function SidebarFilter({ value = 500000, min = 500000, max = 5000000, onChange }) {
+function SidebarFilter({ value = 150, min = 40, max = 250, onChange }) {
   return (
-    <aside className="space-y-8 rounded-[1.75rem] bg-white p-6 shadow-[0_0_32px_rgba(27,28,26,0.06)]">
+    <aside className="space-y-8 rounded-[1.75rem] bg-white p-6 shadow-[0_0_32px_rgba(27,28,26,0.06)] max-h-[calc(100vh-10rem)] overflow-y-auto">
       <div className="space-y-6">
         {groups.map((group) => (
           <div key={group.title} className="space-y-3">
@@ -41,8 +41,8 @@ function SidebarFilter({ value = 500000, min = 500000, max = 5000000, onChange }
       </div>
       <div className="space-y-4">
         <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-[#715953]">
-          <span>KHOẢNG GIÁ</span>
-          <span>{Math.round(value / 1000).toLocaleString()}k VNĐ</span>
+          <span>PRICE RANGE</span>
+          <span>${value}</span>
         </div>
         <input
           type="range"
@@ -53,8 +53,8 @@ function SidebarFilter({ value = 500000, min = 500000, max = 5000000, onChange }
           className="w-full accent-[#2b6954]"
         />
         <div className="flex justify-between text-sm text-[#566342]">
-          <span>500k VNĐ</span>
-          <span>5,000k VNĐ</span>
+          <span>$40</span>
+          <span>$250</span>
         </div>
       </div>
     </aside>
