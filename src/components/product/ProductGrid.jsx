@@ -1,12 +1,12 @@
 import React from 'react'
 import ProductCard from './ProductCard'
-import products from '../../data/productDetailData'
 import { useCart } from '../../context/CartContext'
+import bouquetDataset from '../../data/bouquetDataset'
 
 function ProductGrid({ maxPrice = Number.POSITIVE_INFINITY }) {
   const { addItem } = useCart()
 
-  const visibleProducts = products.filter((product) => {
+  const visibleProducts = bouquetDataset.filter((product) => {
     const numericPrice = Number(product.price.replace(/\D/g, ''))
     return numericPrice <= maxPrice
   })
@@ -21,6 +21,7 @@ function ProductGrid({ maxPrice = Number.POSITIVE_INFINITY }) {
             key={product.id}
             to={`/product/${product.id}`}
             {...product}
+            imageContainerClass="h-72 overflow-hidden"
             onAddToCart={() =>
               addItem({
                 id: product.id,

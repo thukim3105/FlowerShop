@@ -1,6 +1,6 @@
 import React from 'react'
 
-const groups = [
+const defaultGroups = [
   {
     title: 'SPECIAL OCCASIONS',
     items: ['Birthday', 'Anniversary', 'Gratitude'],
@@ -13,7 +13,15 @@ const groups = [
   },
 ]
 
-function SidebarFilter({ value = 150, min = 40, max = 250, onChange }) {
+function SidebarFilter({
+  groups = defaultGroups,
+  value = 150,
+  min = 40,
+  max = 250,
+  onChange,
+  minLabel = '$40',
+  maxLabel = '$250',
+}) {
   return (
     <aside className="space-y-8 rounded-[1.75rem] bg-white p-6 shadow-[0_0_32px_rgba(27,28,26,0.06)] max-h-[calc(100vh-10rem)] overflow-y-auto">
       <div className="space-y-6">
@@ -53,8 +61,8 @@ function SidebarFilter({ value = 150, min = 40, max = 250, onChange }) {
           className="w-full accent-[#2b6954]"
         />
         <div className="flex justify-between text-sm text-[#566342]">
-          <span>$40</span>
-          <span>$250</span>
+          <span>{minLabel}</span>
+          <span>{maxLabel}</span>
         </div>
       </div>
     </aside>

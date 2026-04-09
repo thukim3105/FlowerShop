@@ -1,3 +1,5 @@
+import bouquetDataset from './bouquetDataset'
+
 const careItems = [
     {
         id: 'hydration',
@@ -279,12 +281,14 @@ const products = [
     },
 ]
 
+const allProducts = [...products, ...bouquetDataset]
+
 export function getProductById(id) {
-    return products.find((product) => product.id === id)
+    return allProducts.find((product) => product.id === id)
 }
 
 export function getRelatedProducts(id) {
-    return products.filter((product) => product.id !== id).slice(0, 3)
+    return allProducts.filter((product) => product.id !== id).slice(0, 3)
 }
 
 export default products

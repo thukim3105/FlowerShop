@@ -12,14 +12,17 @@ function Header() {
 
   const navItems = [
     { label: "HOME", path: "/" },
-    { label: "COLLECTIONS", path: "/product" },
-    { label: "OCCASIONS", path: "/occasions" },
-    { label: "JOURNAL", path: "/journal" },
+    { label: "BOUQUETS", path: "/product" },
+    { label: "PLANTS", path: "/plants" },
+    { label: "CONTACT", path: "/contact" },
   ];
 
   const isActive = (path) => {
     if (path === '/product') {
       return location.pathname === path || location.pathname.startsWith('/product/')
+    }
+    if (path === '/plants') {
+      return location.pathname === path || location.pathname.startsWith('/plants/')
     }
     return location.pathname === path
   }

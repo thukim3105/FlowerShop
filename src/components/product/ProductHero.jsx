@@ -30,7 +30,7 @@ function ProductHero() {
       </div>
       <div className="relative overflow-hidden rounded-4xl bg-[#fff7f5]">
         <img
-          src="/img/hydrangea.jpg"
+          src="/img/bouquets/sunflower.jpg"
           alt="Pink Ranunculus bloom"
           className="h-full w-full object-cover"
         />

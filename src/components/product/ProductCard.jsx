@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 function ProductCard({ image, title, price, description, to, onAddToCart }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-[0_0_24px_rgba(27,28,26,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_56px_rgba(27,28,26,0.12)] ">
-      <div className="h-60 overflow-hidden">
+      <div className="h-100 overflow-hidden">
         {to ? (
           <Link to={to} className="block">
             <img
               src={image}
               alt={title}
-              className="h-55 w-full object-cover transition duration-300 group-hover:scale-105"
+              className="h-100 w-full object-cover transition duration-300 group-hover:scale-105"
             />
           </Link>
         ) : (
