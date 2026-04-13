@@ -14,7 +14,7 @@ function Header() {
     { label: "HOME", path: "/" },
     { label: "BOUQUETS", path: "/product" },
     { label: "PLANTS", path: "/plants" },
-    { label: "CONTACT", path: "/contact" },
+    { label: "ABOUT US", path: "/about" },
   ];
 
   const isActive = (path) => {
